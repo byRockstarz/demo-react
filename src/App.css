@@ -154,6 +154,7 @@ ul.horizontal li a.active{
 
 .d-flex{
   display: flex;
+  margin: 20px;
 }
 
 .mt-3{
