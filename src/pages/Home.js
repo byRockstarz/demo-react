@@ -92,13 +92,17 @@ function Home() {
 
   // ฟังก์ชั่นกดยืนยันกรอกข้อมูล
 
-  const handleSubmit = () => {
-    setCardsState([...cardsState , {...cardState , id:cardsState.length +1}]);
-    setcardState({})
-    closeModal()
-  }
+  // const handleSubmit = () => {
+  //   setCardsState([...cardsState , {...cardState , id:cardsState.length +1}]);
+  //   setcardState({})
+  //   closeModal()
+  // }
 
-
+    const handleSubmit = () => {
+    setCardsState([cardsState,{...cardState,id:cardsState.length+1}])
+    setcardState({});
+    closeModal();
+    }
   
 
   return (

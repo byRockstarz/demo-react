@@ -1,5 +1,7 @@
 import React , {useState} from 'react'
-import Card from '../componant/hardware/Card'
+import Modal from 'react-modal'
+import Card from '../components/hardware/Card'
+
 
 
 function Hardware ()
@@ -51,18 +53,28 @@ imageUrl:"//images.samsung.com/is/image/samsung/th-ur55-lu28r550uqexxt-frontblac
 ];
 
 const [hardwaresState,setHardwareState] = useState(hardwares);
+const [modalIsOpen,setIsOpen] = useState(false);
+const [hardwareState,sethardwareState] = useState({
+    id : '',
+    name : '',
+    price : '',
+    description : '',
+    imageUrl : ''
+});
+const OpenModal = () => setIsOpen(true);
+const CloseModal = () => setIsOpen(false);
 
 const handleDeleteHardware = (hardwareId) =>{
     const newHardwaresState = hardwaresState.filter((hardware) => hardware.id !== hardwareId);
     setHardwareState(newHardwaresState);
-}
+};
 
-const hardwareHandleClear = () => {setHardwareState([])}
-
+const hardwareHandleClear = () => {setHardwareState([])};
 
     return(
     <div>
         <div>
+        <button onClick={OpenModal}>เพิ่มข้อมูล</button>
         <button onClick={hardwareHandleClear}>ล้างข้อมูล</button>
         </div>
     <div>
