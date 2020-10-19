@@ -14,7 +14,7 @@ export const customStyles = {
 };
 
 function Home() {
-  let cards = [
+  const cards = [
     {
       id: 1,
       title: "จำเลยรักลวงใจ",
@@ -170,10 +170,10 @@ function Home() {
         {cardsState.map(function (card) {
           return (
             <Card
-              key={card.id}
+              // key={card.id}
               card={card}
-              handleDeleteCard={handleDeleteCard}
-              handleUpdate={handleUpdate}
+              // handleDeleteCard={handleDeleteCard}
+              // handleUpdate={handleUpdate}
             ></Card>
           );
         })}

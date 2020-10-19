@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { customStyles } from "../../pages/Home.js";
 
-function Card({ card, children, handleDeleteCard, handleUpdate }) {
+function Card({ card, handleDeleteCard, handleUpdate }) {
   const [cardState, setcardState] = useState(card);
   const [modalIsOpen, setIsOpen] = useState(false);
   const OpenModal = () => setIsOpen(true);
@@ -110,7 +110,6 @@ function Card({ card, children, handleDeleteCard, handleUpdate }) {
         </div>
 
         <div className="wrap_btn_book_list">ราคา {card.price} บาท</div>
-        {children}
       </div>
     </div>
   );
