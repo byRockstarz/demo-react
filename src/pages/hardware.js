@@ -52,6 +52,10 @@ function Hardware() {
   const [hardwaresState, setHardwaresState] = useState(hardwares);
 
   const resetHardwaresState = () => setHardwaresState([]); // ลบ State ทั้งหมด โดยกำหนดค่าในอาร์เรย์ให้เท่ากับ 0
+  const deletethishardware = (cardId) => {
+    const newHardwaresState = hardwaresState.filter((card) => card.id !== cardId);
+  };
+
 
   return (
     <div>

@@ -172,7 +172,7 @@ function Home() {
             <Card
               // key={card.id}
               card={card}
-              // handleDeleteCard={handleDeleteCard}
+              handleDeleteCard={handleDeleteCard}
               // handleUpdate={handleUpdate}
             ></Card>
           );

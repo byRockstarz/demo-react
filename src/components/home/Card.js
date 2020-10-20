@@ -16,7 +16,7 @@ function Card({ card, handleDeleteCard, handleUpdate }) {
     closeModal();
   };
 
-  function handleDelete() {
+  const handleDelete = () => {
     handleDeleteCard(card.id);
   }
 
