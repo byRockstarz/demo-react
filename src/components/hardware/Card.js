@@ -1,11 +1,17 @@
 import React from "react";
 
-const Card = ({ hardware }) => {
+const Card = ({ hardware, deleteThisHardware }) => {
+  const deleteCard = () => {
+    deleteThisHardware(hardware.id);
+  };
+
   return (
     <div className="parent_book_listing">
       <div className="d-flex">
         <button>แก้ไขข้อมูล</button>
-        <button className="ml-auto">ลบข้อมูล</button>
+        <button className="ml-auto" onClick={deleteCard}>
+          ลบข้อมูล
+        </button>
       </div>
 
       <div className="book_listing">

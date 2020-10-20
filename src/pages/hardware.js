@@ -1,5 +1,17 @@
 import React, { useState } from "react";
 import Card from "../components/hardware/Card";
+import Modal from "react-modal";
+
+export const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
 
 function Hardware() {
   const hardwares = [
@@ -50,20 +62,62 @@ function Hardware() {
   ];
 
   const [hardwaresState, setHardwaresState] = useState(hardwares);
-
   const resetHardwaresState = () => setHardwaresState([]); // ลบ State ทั้งหมด โดยกำหนดค่าในอาร์เรย์ให้เท่ากับ 0
-  const deletethishardware = (cardId) => {
-    const newHardwaresState = hardwaresState.filter((card) => card.id !== cardId);
+  const deleteThisHardware = (hardwareId) => {
+    const newHardwaresState = hardwaresState.filter(function (hardware) {
+      return hardware.id !== hardwareId;
+    });
+    setHardwaresState(newHardwaresState);
   };
+  const [modalIsOpen, setIsOpen] = useState(false);
 
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const [hardwareState, sethardwareState] = useState({
+    name: "",
+    price: "",
+    description: "",
+    imageUrl: "",
+  });
 
   return (
     <div>
-      <button>เพิ่มข้อมูล</button>
+      <button onClick={openModal}>เพิ่มข้อมูล</button>
       <button onClick={resetHardwaresState}>ลบข้อมูลทั้งหมด</button>
-      <div>
+      <div className="d-flex">
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+        >
+          <form>
+            <div>
+              <label>ชื่ออุปกรณ์</label>
+              <input name="name" value={hardwareState.name} />
+            </div>
+
+            <div>
+              <label>ราคา</label>
+            </div>
+
+            <div>
+              <label>รายละเอียด</label>
+            </div>
+
+            <div>
+              <label>รูปภาพ</label>
+            </div>
+          </form>
+        </Modal>
         {hardwaresState.map(function (hardware) {
-          return <Card hardware={hardware} />;
+          return (
+            <Card
+              hardware={hardware}
+              deleteThisHardware={deleteThisHardware}
+              key={hardware.id}
+            />
+          );
         })}
       </div>
     </div>
