@@ -18,7 +18,7 @@ function Card({ card, handleDeleteCard, handleUpdate }) {
 
   const handleDelete = () => {
     handleDeleteCard(card.id);
-  }
+  };
 
   const handleCancel = () => {
     setcardState(card);

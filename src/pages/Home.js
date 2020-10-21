@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/home/Card";
 import Modal from "react-modal";
 
@@ -88,7 +88,10 @@ function Home() {
   // }
 
   const handleSubmit = () => {
-    setCardsState([cardsState, { ...cardState, id: cardsState.length + 1 }]);
+    setCardsState([
+      ...cardsState,
+      { ...cardState, id: Math.random().toString() },
+    ]);
     setcardState({});
     closeModal();
   };
@@ -103,6 +106,23 @@ function Home() {
       setCardsState(newCardsState);
     }
   };
+
+  const setCardsToStorage = (cards) => {
+    localStorage.setItem("cards", JSON.stringify(cards));
+  };
+
+  useEffect(() => {
+    const cardsStorage = localStorage.getItem("cards");
+    if (cardsStorage) {
+      setCardsState(JSON.parse(cardsStorage));
+    } else {
+      setCardsToStorage(cards);
+    }
+  }, []);
+
+  useEffect(() => {
+    setCardsToStorage(cardsState);
+  }, [cardsState]);
 
   return (
     <div className="mt-3">
@@ -170,10 +190,10 @@ function Home() {
         {cardsState.map(function (card) {
           return (
             <Card
-              // key={card.id}
+              key={card.id}
               card={card}
               handleDeleteCard={handleDeleteCard}
-              // handleUpdate={handleUpdate}
+              handleUpdate={handleUpdate}
             ></Card>
           );
         })}
