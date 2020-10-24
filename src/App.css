@@ -154,6 +154,10 @@ ul.horizontal li a.active {
   margin: 20px;
 }
 
+.d-blcok{
+  display : block;
+}
+
 .mt-3 {
   margin-top: 3rem;
 }

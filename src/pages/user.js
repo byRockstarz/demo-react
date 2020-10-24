@@ -6,6 +6,7 @@ const User = () => {
   useEffect(() => {
     getUserById();
   }, []);
+  
   const param = useParams();
   const [IsLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});

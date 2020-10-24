@@ -83,9 +83,10 @@ function Hardware() {
 
   return (
     <div>
+      <div className='mt-3'>
       <button onClick={openModal}>เพิ่มข้อมูล</button>
       <button onClick={resetHardwaresState}>ลบข้อมูลทั้งหมด</button>
-      <div className="d-flex">
+            </div><div className="d-flex">
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}

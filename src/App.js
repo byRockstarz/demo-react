@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/user/:userId">
           <User />
         </Route>
+        
       </Switch>
     </Layout>
   );

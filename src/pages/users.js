@@ -16,17 +16,17 @@ const Users = () => {
     setUsers(users);
     setIsLoading(false);
   };
+
+  
   if (isLoading) {
     return <div>Loading ... </div>;
+  } else {
+return <div>
+{users.map(function (user) {
+  return <Card key={user.id} user={user} />;
+})}
+</div>
   }
-
-  return (
-    <div>
-      {users.map(function (user) {
-        return <Card key={user.id} user={user} />;
-      })}
-    </div>
-  );
 };
 
 export default Users;
