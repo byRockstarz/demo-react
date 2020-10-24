@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "./card";
+import Card from "../components/user/card";
 
 const Users = () => {
   const [users, setUsers] = useState();
@@ -17,15 +17,20 @@ const Users = () => {
     setIsLoading(false);
   };
 
-  
   if (isLoading) {
-    return <div>Loading ... </div>;
+    return (
+      <div className="d-flex">
+        <h1 className="mx-auto">Loading...</h1>
+      </div>
+    );
   } else {
-return <div>
-{users.map(function (user) {
-  return <Card key={user.id} user={user} />;
-})}
-</div>
+    return (
+      <div className="d-flex flex-wrap center">
+        {users.map((user) => {
+          return <Card key={user.id} user={user} />;
+        })}
+      </div>
+    );
   }
 };
 
