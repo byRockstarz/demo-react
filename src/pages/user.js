@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { NavLink } from "react-router-dom";
 import Profile from "../components/user/profile";
 import Post from "../components/user/post";
+import Album from "../components/user/album";
 
 const User = () => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const User = () => {
   const [IsLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   const getUserById = async () => {
     const response = await axios(
@@ -22,6 +24,7 @@ const User = () => {
     const user = response.data;
     setUser(user);
     await getPostsByUserId();
+    await getAlbumsByUserId();
     setIsLoading(false);
   };
 
@@ -32,6 +35,14 @@ const User = () => {
     const posts = responsePost.data;
     console.log(responsePost);
     setPosts(posts);
+  };
+
+  const getAlbumsByUserId = async () => {
+    const responseAlbum = await axios(
+      `http://jsonplaceholder.typicode.com/users/${param.userId}/albums`
+    );
+    const albums = responseAlbum.data;
+    setAlbums(albums);
   };
 
   if (IsLoading) {
@@ -49,7 +60,16 @@ const User = () => {
         <div className="d-flex flex-wrap bd-grey center">
           <h1 className="width-100 text-align-center mt-3">Post</h1>
           {posts.map((post) => {
-            return <Post key={post.id} post={post} />;
+            return <Post key={post.id} post={post} album={albums} />;
+          })}
+        </div>
+      </div>
+
+      <div className="d-flex">
+        <div className="d-flex flex-wrap bd-grey center">
+          <h1 className="width-100 text-align-center mt-3">Albums</h1>
+          {albums.map((album) => {
+            return <Album key={album.id} album={album} />;
           })}
         </div>
       </div>

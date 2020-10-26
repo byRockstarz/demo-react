@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Hardware from "./pages/hardware";
 import Users from "./pages/users";
 import User from "./pages/user";
+import Album from "./pages/album";
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
         </Route>
         <Route path="/hardware">
           <Hardware />
+        </Route>
+        <Route path="/user/:userId/album/:albumId">
+          <Album />
         </Route>
         <Route path="/users">
           <Users />
