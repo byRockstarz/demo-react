@@ -23,15 +23,14 @@ const Users = () => {
         <h1 className="mx-auto">Loading...</h1>
       </div>
     );
-  } else {
-    return (
-      <div className="d-flex flex-wrap center">
-        {users.map((user) => {
-          return <Card key={user.id} user={user} />;
-        })}
-      </div>
-    );
   }
+  return (
+    <div className="d-flex flex-wrap center">
+      {users.map((user) => {
+        return <Card key={user.id} user={user} />;
+      })}
+    </div>
+  );
 };
 
 export default Users;

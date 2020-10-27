@@ -33,7 +33,6 @@ const User = () => {
       `https://jsonplaceholder.typicode.com/users/${param.userId}/posts`
     );
     const posts = responsePost.data;
-    console.log(responsePost);
     setPosts(posts);
   };
 
@@ -54,6 +53,14 @@ const User = () => {
   }
   return (
     <div className="mg-1">
+      <div className="d-flex">
+        <NavLink
+          className="mx-auto text-decoration-none bd-grey-3px pd-5px"
+          to="/users"
+        >
+          Back
+        </NavLink>
+      </div>
       <Profile user={user} />
 
       <div className="d-flex">
@@ -72,15 +79,6 @@ const User = () => {
             return <Album key={album.id} album={album} />;
           })}
         </div>
-      </div>
-
-      <div className="d-flex">
-        <NavLink
-          className="mx-auto text-decoration-none bd-grey-3px pd-5px"
-          to="/users"
-        >
-          Back
-        </NavLink>
       </div>
     </div>
   );

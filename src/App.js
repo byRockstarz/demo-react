@@ -19,14 +19,14 @@ const App = () => {
         <Route path="/hardware">
           <Hardware />
         </Route>
-        <Route path="/user/:userId/album/:albumId">
-          <Album />
-        </Route>
         <Route path="/users">
           <Users />
         </Route>
-        <Route path="/user/:userId">
+        <Route exact path="/user/:userId">
           <User />
+        </Route>
+        <Route path="/user/:userId/album/:albumId">
+          <Album />
         </Route>
       </Switch>
     </Layout>
