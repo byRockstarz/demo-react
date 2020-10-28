@@ -64,7 +64,7 @@ const User = () => {
       <Profile user={user} />
 
       <div className="d-flex">
-        <div className="d-flex flex-wrap bd-grey center">
+        <div className="d-flex flex-wrap bd-grey center max-width-1000">
           <h1 className="width-100 text-align-center mt-3">Post</h1>
           {posts.map((post) => {
             return <Post key={post.id} post={post} album={albums} />;
