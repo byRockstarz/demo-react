@@ -2,14 +2,16 @@ import React from "react";
 
 const Post = ({ post }) => {
   return (
-    <div className="d-flex mr-auto">
-      <div className="bg-white mx-auto bd-less-grey">
+    <div className="d-flex mx-auto">
+      <div className="bg-skyblue radian-10 mx-auto box-shadow mg-20px">
         <div className="mg-1">
-          <h5>{post.title}</h5>
+          <h3>
+            {post.id}. {post.title}
+          </h3>
           <small>{new Date().toLocaleTimeString("th")}</small>
           &nbsp;
           <small>{new Date().toLocaleDateString("th")}</small>
-          <p>{post.body}</p>
+          <p className="flex-wrap">{post.body}</p>
         </div>
       </div>
     </div>

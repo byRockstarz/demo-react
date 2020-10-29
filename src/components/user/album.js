@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 
 const Album = ({ album }) => {
   return (
-    <div>
-      <Link
-        to={`/user/${album.userId}/album/${album.id}`}
-        className="mg-1 d-flex flex-wrap width-300 bd-less-grey"
-      >
-        {album.title}
-      </Link>
+    <div className="d-flex mx-auto">
+      <div className="bg-white bd-less-grey mg-20px">
+        <div className="mg-1">
+          <Link
+            to={`/user/${album.userId}/album/${album.id}`}
+            className="text-decoration-none"
+          >
+            {album.title}
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
