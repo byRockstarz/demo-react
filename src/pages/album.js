@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const Album = () => {
   useEffect(() => {
@@ -28,11 +30,13 @@ const Album = () => {
       <button>
         <Link to={`/user/${param.userId}`}>back</Link>
       </button>
-      {photos.map((photo) => (
-        <div>
-          <img src={photo.url} alt={photo.title} />
-        </div>
-      ))}
+      <Carousel className="albums-photo-size mx-auto">
+        {photos.map((photo) => (
+          <div>
+            <img src={photo.url} alt={photo.title} />
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };

@@ -125,7 +125,7 @@ function Home() {
   }, [cardsState]);
 
   return (
-    <div className="mt-3">
+    <div>
       <button onClick={openModal}>เพิ่มข้อมูล</button>
       <button onClick={handleClear}>ล้างข้อมูล</button>
 

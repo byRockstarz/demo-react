@@ -3,7 +3,7 @@ import React from "react";
 const Post = ({ post }) => {
   return (
     <div className="d-flex mx-auto">
-      <div className="bg-skyblue radian-10 mx-auto box-shadow mg-20px">
+      <div className="bg-skyblue radian-10 mx-auto h-200px box-shadow mg-20px width-100 d-block">
         <div className="mg-1">
           <h3>
             {post.id}. {post.title}

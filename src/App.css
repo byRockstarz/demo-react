@@ -162,6 +162,14 @@ ul.horizontal li a.active {
   margin-top: 3rem;
 }
 
+.mt-20px {
+  margin-top: 20px;
+}
+
+.mb-20px {
+  margin-bottom: 20px;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -309,8 +317,8 @@ ul.horizontal li a.active {
   transform: rotateY(180deg);
 }
 
-.h-300px {
-  height: 300px;
+.h-200px {
+  height: 200px;
 }
 
 .h-400px {
@@ -319,6 +327,14 @@ ul.horizontal li a.active {
 
 .w-40p {
   max-width: 50%;
+}
+
+.w-60p {
+  max-width: 60%;
+}
+
+.w-100p {
+  max-width: 100%;
 }
 
 .pd-top-1rem {
@@ -347,4 +363,9 @@ ul.horizontal li a.active {
 
 .font-weight-600 {
   font-weight: 600;
+}
+
+.albums-photo-size {
+  width: 600px;
+  height: 600px;
 }

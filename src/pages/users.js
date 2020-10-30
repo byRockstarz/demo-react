@@ -25,7 +25,7 @@ const Users = () => {
     );
   }
   return (
-    <div className="d-flex flex-wrap center">
+    <div className="bg-skyblue d-flex flex-wrap center">
       {users.map((user) => {
         return <Card key={user.id} user={user} />;
       })}

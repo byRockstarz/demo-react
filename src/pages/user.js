@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import Profile from "../components/user/profile";
 import Post from "../components/user/post";
 import Album from "../components/user/album";
+import { FaBeer } from "react-icons/fa";
 
 const User = () => {
   useEffect(() => {
@@ -63,14 +64,14 @@ const User = () => {
       </div>
       <Profile user={user} />
       <div className="d-flex">
-        <div className="d-flex flex-wrap bd-grey center w-40p">
+        <div className="d-flex flex-wrap center box-shadow w-60p">
           <h1 className="width-100 text-align-center mt-3">Post</h1>
           {posts.map((post) => {
             return <Post key={post.id} post={post} album={albums} />;
           })}
         </div>
-        <div className="d-flex flex-wrap bd-grey center w-40p">
-          <h1 className="width-100 text-align-center mt-3">Albums</h1>
+        <div className="d-flex flex-wrap box-shadow center width-100 d-block ">
+          <h1 className="width-100 text-align-center mb-20px mt-3">Albums</h1>
           {albums.map((album) => {
             return <Album key={album.id} album={album} />;
           })}
